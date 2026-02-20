@@ -3,7 +3,7 @@
 - NPM ^10.2.0
 - GIT ^2.51.0
 
-# Instalación
+# Instalación inicial
 
 - Instale TODAS las extensiones recomendadas por VSC para este proyecto
 - Ejecute el comando NPM `npm run instalar-entorno-desarrollo`

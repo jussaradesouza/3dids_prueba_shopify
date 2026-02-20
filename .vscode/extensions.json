@@ -1,3 +1,7 @@
 {
-  "recommendations": ["esbenp.prettier-vscode", "shopify.theme-check-vscode"]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "shopify.theme-check-vscode",
+    "jock.svg"
+  ]
 }
