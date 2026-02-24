@@ -13,10 +13,10 @@
     "cerrar-sesion": "npx shopify auth logout",
     "ver-version": "npx shopify version",
     "listar-temas": "npx shopify theme list",
-    "descargar-tema": "npx shopify theme pull --theme-id=196770693451",
+    "descargar-tema": "npx shopify theme pull --theme=196770693451",
     "previsualizar-tema": "npx shopify theme dev",
     "chekear-codigo": "npx shopify theme check",
-    "publicar-tema": "npx shopify theme push --theme-id=196770693451"
+    "publicar-tema": "npx shopify theme push --theme=196770693451"
   },
   "devDependencies": {
     "@shopify/cli": "^3.91.0"
