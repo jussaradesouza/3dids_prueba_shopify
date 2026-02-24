@@ -19,6 +19,6 @@
     "publicar-tema": "npx shopify theme push"
   },
   "devDependencies": {
-    "@shopify/cli": "^3.90.1"
+    "@shopify/cli": "^3.91.0"
   }
 }
