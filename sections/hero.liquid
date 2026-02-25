@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign media_count = 0
   assign media_count_mobile = 0
@@ -23,12 +21,20 @@
     assign media_1 = 'video'
     assign media_count = media_count | plus: 1
   endif
+  if section.settings.media_1_iframe != blank and section.settings.media_type_1 == 'iframe'
+    assign media_1 = 'iframe'
+    assign media_count = media_count | plus: 1
+  endif
   if section.settings.image_2 != blank and section.settings.media_type_2 == 'image'
     assign media_2 = 'image'
     assign media_count = media_count | plus: 1
   endif
   if section.settings.video_2 != blank and section.settings.media_type_2 == 'video'
     assign media_2 = 'video'
+    assign media_count = media_count | plus: 1
+  endif
+  if section.settings.media_2_iframe != blank and section.settings.media_type_2 == 'iframe'
+    assign media_2 = 'iframe'
     assign media_count = media_count | plus: 1
   endif
 
@@ -43,12 +49,20 @@
       assign media_1_mobile = 'video'
       assign media_count_mobile = media_count_mobile | plus: 1
     endif
+    if section.settings.media_1_mobile_iframe != blank and section.settings.media_type_1_mobile == 'iframe'
+      assign media_1_mobile = 'iframe'
+      assign media_count_mobile = media_count_mobile | plus: 1
+    endif
     if section.settings.image_2_mobile != blank and section.settings.media_type_2_mobile == 'image'
       assign media_2_mobile = 'image'
       assign media_count_mobile = media_count_mobile | plus: 1
     endif
     if section.settings.video_2_mobile != blank and section.settings.media_type_2_mobile == 'video'
       assign media_2_mobile = 'video'
+      assign media_count_mobile = media_count_mobile | plus: 1
+    endif
+    if section.settings.media_2_mobile_iframe != blank and section.settings.media_type_2_mobile == 'iframe'
+      assign media_2_mobile = 'iframe'
       assign media_count_mobile = media_count_mobile | plus: 1
     endif
   endif
@@ -180,6 +194,12 @@
     </div>
   {%- endif -%}
 
+  {%- if media_1 == 'iframe' -%}
+    <div class="{{ media_wrapper_desktop_class }}">
+      {{ section.settings.media_1_iframe }}
+    </div>
+  {%- endif -%}
+
   {%- comment -%} Mobile-only slot 1 media (when desktop is different type) {%- endcomment -%}
   {%- if media_count > 0 and media_count_mobile > 0 -%}
     {%- if media_1_mobile == 'image' and media_1 != 'image' -%}
@@ -281,6 +301,12 @@
           class: 'hero__media',
           data-testid: 'hero-desktop-video-2'
       }}
+    </div>
+  {%- endif -%}
+
+  {%- if media_2 == 'iframe' -%}
+    <div class="{{ media_wrapper_desktop_class }}">
+      {{ section.settings.media_2_iframe }}
     </div>
   {%- endif -%}
 
@@ -797,6 +823,10 @@
         {
           "value": "video",
           "label": "t:options.video"
+        },
+        {
+          "value": "iframe",
+          "label": "iframe"
         }
       ],
       "default": "image"
@@ -814,6 +844,13 @@
       "visible_if": "{{ section.settings.media_type_1 == 'video' }}"
     },
     {
+      "type": "textarea",
+      "id": "media_1_iframe",
+      "label": "iframe HTML",
+      "placeholder": "<iframe src=\"https://www.youtube.com/embed/icrvBJYylNw?controls=0&loop=1&autoplay=1&mute=1&showinfo=0&enablejsapi=1&origin=https%3A%2F%2Fartesanialatina.net&widgetid=1&forigin=https%3A%2F%2Fartesanialatina.net%2Fes%2F&aoriginsup=1&vf=5\" width=\"100%\" height=\"600\" frameborder=\"0\" allowfullscreen></iframe>",
+      "visible_if": "{{ section.settings.media_type_1 == 'iframe' }}"
+    },
+    {
       "type": "header",
       "content": "t:content.media_2"
     },
@@ -829,6 +866,10 @@
         {
           "value": "video",
           "label": "t:options.video"
+        },
+        {
+          "value": "iframe",
+          "label": "iframe"
         }
       ],
       "default": "image"
@@ -844,6 +885,13 @@
       "id": "video_2",
       "label": "t:settings.video",
       "visible_if": "{{ section.settings.media_type_2 == 'video' }}"
+    },
+    {
+      "type": "textarea",
+      "id": "media_2_iframe",
+      "label": "iframe HTML",
+      "placeholder": "<iframe src=\"https://www.youtube.com/embed/icrvBJYylNw?controls=0&autoplay=1&mute=1&showinfo=0&enablejsapi=1&loop=1&playlist=icrvBJYylNw&origin=https%3A%2F%2Fartesanialatina.net&widgetid=1&forigin=https%3A%2F%2Fartesanialatina.net%2Fes%2F&aoriginsup=1&vf=5\" width=\"100%\" height=\"600\" frameborder=\"0\" allowfullscreen></iframe>",
+      "visible_if": "{{ section.settings.media_type_2 == 'iframe' }}"
     },
     {
       "type": "header",
@@ -878,6 +926,10 @@
         {
           "value": "video",
           "label": "t:options.video"
+        },
+        {
+          "value": "iframe",
+          "label": "iframe"
         }
       ],
       "default": "image",
@@ -896,6 +948,13 @@
       "visible_if": "{{ section.settings.custom_mobile_media and section.settings.media_type_1_mobile == 'video' }}"
     },
     {
+      "type": "textarea",
+      "id": "media_1_mobile_iframe",
+      "label": "iframe HTML",
+      "placeholder": "<iframe src=\"https://www.youtube.com/embed/icrvBJYylNw?controls=0&autoplay=1&mute=1&showinfo=0&enablejsapi=1&loop=1&playlist=icrvBJYylNw&origin=https%3A%2F%2Fartesanialatina.net&widgetid=1&forigin=https%3A%2F%2Fartesanialatina.net%2Fes%2F&aoriginsup=1&vf=5\" width=\"100%\" height=\"600\" frameborder=\"0\" allowfullscreen></iframe>",
+      "visible_if": "{{ section.settings.custom_mobile_media and section.settings.media_type_1_mobile == 'iframe' }}"
+    },
+    {
       "type": "header",
       "content": "t:content.mobile_media_2",
       "visible_if": "{{ section.settings.custom_mobile_media }}"
@@ -912,6 +971,10 @@
         {
           "value": "video",
           "label": "t:options.video"
+        },
+        {
+          "value": "iframe",
+          "label": "iframe"
         }
       ],
       "default": "image",
@@ -928,6 +991,13 @@
       "id": "video_2_mobile",
       "label": "t:settings.video",
       "visible_if": "{{ section.settings.custom_mobile_media and section.settings.media_type_2_mobile == 'video' }}"
+    },
+    {
+      "type": "textarea",
+      "id": "media_2_mobile_iframe",
+      "label": "iframe HTML",
+      "placeholder": "<iframe src=\"https://www.youtube.com/embed/icrvBJYylNw?controls=0&autoplay=1&mute=1&showinfo=0&enablejsapi=1&loop=1&playlist=icrvBJYylNw&origin=https%3A%2F%2Fartesanialatina.net&widgetid=1&forigin=https%3A%2F%2Fartesanialatina.net%2Fes%2F&aoriginsup=1&vf=5\" width=\"100%\" height=\"600\" frameborder=\"0\" allowfullscreen></iframe>",
+      "visible_if": "{{ section.settings.custom_mobile_media and section.settings.media_type_2_mobile == 'iframe' }}"
     },
     {
       "type": "header",

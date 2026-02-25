@@ -6,7 +6,7 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */ {
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -15,7 +15,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -41,7 +41,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop all",
+            "label": "DESCÚBRELO AQUI",
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
@@ -53,13 +53,11 @@
           "blocks": {}
         }
       },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
+      "block_order": ["text_YLPk4p", "button_H9gpTf"],
       "name": "t:names.hero",
       "settings": {
-        "media_type_1": "image",
+        "media_type_1": "iframe",
+        "media_1_iframe": "<iframe src=\"https://www.youtube.com/embed/icrvBJYylNw?controls=0&autoplay=1&mute=1&showinfo=0&enablejsapi=1&loop=1&playlist=icrvBJYylNw&origin=https%3A%2F%2Fartesanialatina.net&widgetid=1&forigin=https%3A%2F%2Fartesanialatina.net%2Fes%2F&aoriginsup=1&vf=5\" width=\"100%\" height=\"600\" frameborder=\"0\" allowfullscreen></iframe>",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": false,
@@ -283,8 +281,5 @@
       }
     }
   },
-  "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
-  ]
+  "order": ["hero_jVaWmY", "product_list_fa6P9H"]
 }

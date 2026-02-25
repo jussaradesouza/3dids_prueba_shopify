@@ -3,33 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "https://github.com/jussaradesouza/3dids_prueba_shopify#readme",
-  "bugs": {
-    "url": "https://github.com/jussaradesouza/3dids_prueba_shopify/issues"
+  "engines": {
+    "node": "^20.10",
+    "npm": "^10.2.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jussaradesouza/3dids_prueba_shopify.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
   "scripts": {
     "instalar-entorno-desarrollo": "npm i",
     "iniciar-sesion": "npx shopify auth login",
     "cerrar-sesion": "npx shopify auth logout",
     "ver-version": "npx shopify version",
     "listar-temas": "npx shopify theme list",
-    "descargar-tema": "npx shopify theme pull",
+    "descargar-tema": "npx shopify theme pull --theme=196770693451",
     "previsualizar-tema": "npx shopify theme dev",
     "chekear-codigo": "npx shopify theme check",
-    "publicar-tema": "npx shopify theme push"
+    "publicar-tema": "npx shopify theme push --theme=196770693451"
   },
   "devDependencies": {
-    "@shopify/cli": "^3.90.1"
-  },
-  "engines": {
-    "node": "^20.10",
-    "npm": "^10.2.0"
+    "@shopify/cli": "^3.91.0"
   }
 }
+
